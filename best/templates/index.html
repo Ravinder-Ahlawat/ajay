@@ -1,0 +1,306 @@
+{% extends 'basic.html' %}
+ {% block title%} Home Page {% endblock %} 
+ {% block head %}
+ <style>
+     .card-img{
+         max-height: 600px;        
+     }
+     .heading{
+         font-family: "Comic Sans MS", cursive, sans-serif;
+         color: #B60626;
+         text-align: center;
+         text-shadow: aqua;
+     }
+     .hediv{
+        border-radius: 5px;
+        border-style: solid;
+        border-color: yellow;
+        margin: 5px;
+     }
+     .card-img-top{
+         max-width: 286;
+         max-height: 180;
+     }
+     .card-title{
+         text-align: center;
+         border-color: yellowgreen;
+         border-radius: 2px;
+         border-style: dotted;
+         font-family: "Comic Sans MS", cursive, sans-serif;
+         color: #B60626;     
+     }
+     .dat{
+         text-align: center;
+     }
+     #asd{
+         align-content: center;
+     }
+ </style> 
+ {% endblock %}
+ {% block body %}
+ <div class="card bg-dark text-white">
+    <img class="card-img" src="/media/pubgh.jpg" alt="Card image">
+    <div class="card-img-overlay">
+      <p class="card-text"> &#x1f3c6 This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+      <p class="card-text">Last updated 3 mins ago</p>
+    </div>
+  </div>
+
+
+<!-- first text headline-->
+<div Class="hediv">
+<h1 Class="heading">&#9876;   SOLO MATCHES   &#9876;</h1>
+</div>
+
+<!-- Starting first cards row -->
+
+<div class="row mx-3">  
+    <div class="col">  
+        <div class="card">
+            <img class="card-img-top" src="{{ match.0.match_pics.url }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Match {{match.0.match_name}}</h5>
+              <h6 class="dat">	&#x1F4C5; {{match.0.match_date}} &#8986; {{match.0.match_time}}</h6>
+              <p class="card-text"> &#x1f3c6 Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary" id="asd">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+             <img class="card-img-top" src="{{ match.1.match_pics.url }}" alt="Card image cap">
+             <div class="card-body">
+                  <h5 class="card-title">Match {{match.1.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.1.match_date}} &#8986; {{match.1.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+             </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+           <img class="card-img-top" src="{{ match.2.match_pics.url }}" alt="Card image cap">
+           <div class="card-body">
+                  <h5 class="card-title">Match {{match.2.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.2.match_date}} &#8986; {{match.2.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="{{ match.3.match_pics.url }}" alt="Card image cap">
+            <div class="card-body">
+                  <h5 class="card-title">Match {{match.3.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.3.match_date}} &#8986; {{match.3.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of first cards row -->
+    
+
+<!-- second text headline-->
+<div Class="hediv">
+    <h1 class="heading">&#9876;   DUO MATCHES   &#9876;</h1>
+</div>
+
+
+<!-- Starting 2nd cards row -->
+
+<div class="row mx-3">  
+    <div class="col">  
+        <div class="card">
+            <img class="card-img-top" src="{{ match.0.match_pics.url }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Match {{match.0.match_name}}</h5>
+              <h6 class="dat">	&#x1F4C5; {{match.0.match_date}} &#8986; {{match.0.match_time}}</h6>
+              <p class="card-text"> &#x1f3c6 Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary" id="asd">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+             <img class="card-img-top" src="{{ match.1.match_pics.url }}" alt="Card image cap">
+             <div class="card-body">
+                  <h5 class="card-title">Match {{match.1.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.1.match_date}} &#8986; {{match.1.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+             </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+           <img class="card-img-top" src="{{ match.2.match_pics.url }}" alt="Card image cap">
+           <div class="card-body">
+                  <h5 class="card-title">Match {{match.2.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.2.match_date}} &#8986; {{match.2.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="{{ match.3.match_pics.url }}" alt="Card image cap">
+            <div class="card-body">
+                  <h5 class="card-title">Match {{match.3.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.3.match_date}} &#8986; {{match.3.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of 2nd cards row -->
+
+<!-- 3rd text headline-->
+<div Class="hediv">
+    <h1 class="heading">&#9876;   SQUAD MATCHES   &#9876;</h1>
+</div>
+
+
+<!-- Starting 3rd cards row -->
+
+<div class="row mx-3">  
+    <div class="col">  
+        <div class="card">
+            <img class="card-img-top" src="{{ match.0.match_pics.url }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Match {{match.0.match_name}}</h5>
+              <h6 class="dat">	&#x1F4C5; {{match.0.match_date}} &#8986; {{match.0.match_time}}</h6>
+              <p class="card-text"> &#x1f3c6 Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary" id="asd">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+             <img class="card-img-top" src="{{ match.1.match_pics.url }}" alt="Card image cap">
+             <div class="card-body">
+                  <h5 class="card-title">Match {{match.1.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.1.match_date}} &#8986; {{match.1.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+             </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+           <img class="card-img-top" src="{{ match.2.match_pics.url }}" alt="Card image cap">
+           <div class="card-body">
+                  <h5 class="card-title">Match {{match.2.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.2.match_date}} &#8986; {{match.2.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="{{ match.3.match_pics.url }}" alt="Card image cap">
+            <div class="card-body">
+                  <h5 class="card-title">Match {{match.3.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.3.match_date}} &#8986; {{match.3.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of 3rd cards row -->
+
+
+<!-- 4th text headline-->
+<div Class="hediv">
+    <h1 class="heading">&#9876;   1v1 Challenge  &#9876;</h1>
+</div>
+
+
+<!-- Starting 4th cards row -->
+
+<div class="row mx-3">  
+    <div class="col">  
+        <div class="card">
+            <img class="card-img-top" src="{{ match.0.match_pics.url }}" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Match {{match.0.match_name}}</h5>
+              <h6 class="dat">	&#x1F4C5; {{match.0.match_date}} &#8986; {{match.0.match_time}}</h6>
+              <p class="card-text"> &#x1f3c6 Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <a href="#" class="btn btn-primary" id="asd">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+             <img class="card-img-top" src="{{ match.1.match_pics.url }}" alt="Card image cap">
+             <div class="card-body">
+                  <h5 class="card-title">Match {{match.1.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.1.match_date}} &#8986; {{match.1.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+             </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+           <img class="card-img-top" src="{{ match.2.match_pics.url }}" alt="Card image cap">
+           <div class="card-body">
+                  <h5 class="card-title">Match {{match.2.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.2.match_date}} &#8986; {{match.2.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card">
+            <img class="card-img-top" src="{{ match.3.match_pics.url }}" alt="Card image cap">
+            <div class="card-body">
+                  <h5 class="card-title">Match {{match.3.match_name}}</h5>
+                  <h6 class="dat">	<i class="fa fa-calendar"></i> {{match.3.match_date}} &#8986; {{match.3.match_time}}</h6>
+                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End of 4th cards row -->
+
+
+<!-- 5th text headline-->
+<div Class="hediv">
+    <h1 class="heading">&#9876;   Previous Matches  &#9876;</h1>
+</div>
+
+
+<!-- Starting of 5th row -->
+<div class="row mx-3">
+    <div class="col-sm">
+        <h3> Match #0001 </h3>
+        <iframe width="400" height="250"
+            src="https://www.youtube.com/embed/P3eCxiOXolI?autoplay=1">
+        </iframe>
+    </div>
+    <div class="col-sm">
+        <h3> Match #0002 </h3>
+        <iframe width="400" height="250"
+            src="https://www.youtube.com/embed/tuWPtzKNJhw?autoplay=1">
+        </iframe>
+    </div>
+    <div class="col-sm">
+        <h3> Match #0003 </h3>
+        <iframe width="400" height="250"
+            src="https://www.youtube.com/embed/pnMwZyB12KE?autoplay=1">
+        </iframe>
+    </div>
+  </div>
+
+
+
+ {% endblock %} 

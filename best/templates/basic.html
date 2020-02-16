@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        body{
+            background-color: black;
+        }
+        .footer{
+            margin-top: 100px;
+            min-height: 50px;
+            text-align: center;
+        }
+        #butt{
+            margin-right: 50px;
+        }
+    </style>
+    <title>
+        {% block title %} {% endblock %}
+    </title>
+    {% block head %} {% endblock %}
+  </head>
+  <body>
+      <!-- Image and text -->
+<nav class="navbar navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">
+      <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+      GamingKeeda
+    </a>
+    <button type="button" id="butt" class="btn btn-success">Success</button>
+  </nav>
+   
+    {% block body %} {% endblock %}
+
+    <footer class="footer">
+        <div class="container">
+          <span class="text-muted" style="margin-right: 50px">Place sticky footer content here.</span>
+          <a href="#"><i class="fa fa-facebook" aria-hidden="true" style="font-size:48px; margin-right: 50px;"></i></a>
+          <a href="#"><i class="fa fa-youtube" aria-hidden="true" style="font-size:48px; margin-right: 50px"></i></a>
+          <a href="#"><i class="fa fa-instagram" aria-hidden="true" style="font-size:48px; margin-right: 50px; color: red;"></i></a>
+          <a href="#" style="font-size:48px; margin-right: 50px">Discord</a>
+          <a href="#"><i class="fa fa-twitch" aria-hidden="true" style="font-size:48px; margin-right: 50px"></i></a>
+        </div>
+      </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script>
+        $(function () {
+  $('[data-toggle="popover"]').popover()
+})
+    </script>
+  </body>
+</html>
