@@ -32,16 +32,19 @@
      .dat{
          text-align: center;
      }
-     #asd{
-         align-content: center;
+     .card-text{
+        text-align: center;
+        font-family: Georgia, serif;
+        font-size: medium;
      }
+
  </style> 
  {% endblock %}
  {% block body %}
  <div class="card bg-dark text-white">
     <img class="card-img" src="/media/pubgh.jpg" alt="Card image">
     <div class="card-img-overlay">
-      <p class="card-text"> &#x1f3c6 This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+       
       <p class="card-text">Last updated 3 mins ago</p>
     </div>
   </div>
@@ -61,8 +64,9 @@
             <div class="card-body">
               <h5 class="card-title">Match {{match.0.match_name}}</h5>
               <h6 class="dat">	&#x1F4C5; {{match.0.match_date}} &#8986; {{match.0.match_time}}</h6>
-              <p class="card-text"> &#x1f3c6 Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary" id="asd">Go somewhere</a>
+              <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
+              <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.0.per_kill_prize}}</p>
+              <a href="#" class="btn btn-primary">JOIN NOW</a>
             </div>
         </div>
     </div>
@@ -72,8 +76,9 @@
              <div class="card-body">
                   <h5 class="card-title">Match {{match.1.match_name}}</h5>
                   <h6 class="dat">	&#x1F4C5; {{match.1.match_date}} &#8986; {{match.1.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.1.match_entry}}</p>
+                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.1.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.1.per_kill_prize}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
              </div>
         </div>
     </div>
@@ -83,8 +88,9 @@
            <div class="card-body">
                   <h5 class="card-title">Match {{match.2.match_name}}</h5>
                   <h6 class="dat">	&#x1F4C5; {{match.2.match_date}} &#8986; {{match.2.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.2.match_entry}}</p>
+                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.2.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.2.per_kill_prize}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
             </div>
         </div>
     </div>
@@ -94,8 +100,9 @@
             <div class="card-body">
                   <h5 class="card-title">Match {{match.3.match_name}}</h5>
                   <h6 class="dat">	&#x1F4C5; {{match.3.match_date}} &#8986; {{match.3.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.3.match_entry}}</p>
+                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.3.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.3.per_kill_prize}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
             </div>
         </div>
     </div>
@@ -114,45 +121,49 @@
 <div class="row mx-3">  
     <div class="col">  
         <div class="card">
-            <img class="card-img-top" src="{{ match.0.match_pics.url }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ match.4.match_pics.url }}" alt="Card image cap">
             <div class="card-body">
-              <h5 class="card-title">Match {{match.0.match_name}}</h5>
-              <h6 class="dat">	&#x1F4C5; {{match.0.match_date}} &#8986; {{match.0.match_time}}</h6>
-              <p class="card-text"> &#x1f3c6 Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary" id="asd">Go somewhere</a>
+              <h5 class="card-title">Match {{match.4.match_name}}</h5>
+              <h6 class="dat">	&#x1F4C5; {{match.4.match_date}} &#8986; {{match.4.match_time}}</h6>
+              <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.4.match_entry}}</p>
+              <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.4.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.4.per_kill_prize}}</p>
+              <a href="#" class="btn btn-primary" id="asd">JOIN NOW</a>
             </div>
         </div>
     </div>
     <div class="col">
         <div class="card">
-             <img class="card-img-top" src="{{ match.1.match_pics.url }}" alt="Card image cap">
+             <img class="card-img-top" src="{{ match.5.match_pics.url }}" alt="Card image cap">
              <div class="card-body">
-                  <h5 class="card-title">Match {{match.1.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.1.match_date}} &#8986; {{match.1.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <h5 class="card-title">Match {{match.5.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.5.match_date}} &#8986; {{match.5.match_time}}</h6>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.5.match_entry}}</p>
+                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.5.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.5.per_kill_prize}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
              </div>
         </div>
     </div>
     <div class="col">
         <div class="card">
-           <img class="card-img-top" src="{{ match.2.match_pics.url }}" alt="Card image cap">
+           <img class="card-img-top" src="{{ match.6.match_pics.url }}" alt="Card image cap">
            <div class="card-body">
-                  <h5 class="card-title">Match {{match.2.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.2.match_date}} &#8986; {{match.2.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <h5 class="card-title">Match {{match.6.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.6.match_date}} &#8986; {{match.6.match_time}}</h6>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.6.match_entry}}</p>
+                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.6.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.6.per_kill_prize}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
             </div>
         </div>
     </div>
     <div class="col">
         <div class="card">
-            <img class="card-img-top" src="{{ match.3.match_pics.url }}" alt="Card image cap">
+            <img class="card-img-top" src="{{ match.7.match_pics.url }}" alt="Card image cap">
             <div class="card-body">
-                  <h5 class="card-title">Match {{match.3.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.3.match_date}} &#8986; {{match.3.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <h5 class="card-title">Match {{match.7.match_name}}</h5>
+                  <h6 class="dat">	&#x1F4C5; {{match.7.match_date}} &#8986; {{match.7.match_time}}</h6>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.7.match_entry}}</p>
+                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.7.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.7.per_kill_prize}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
             </div>
         </div>
     </div>
@@ -174,8 +185,8 @@
             <div class="card-body">
               <h5 class="card-title">Match {{match.0.match_name}}</h5>
               <h6 class="dat">	&#x1F4C5; {{match.0.match_date}} &#8986; {{match.0.match_time}}</h6>
-              <p class="card-text"> &#x1f3c6 Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary" id="asd">Go somewhere</a>
+              <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
+              <a href="#" class="btn btn-primary" id="asd">JOIN NOW</a>
             </div>
         </div>
     </div>
@@ -185,8 +196,8 @@
              <div class="card-body">
                   <h5 class="card-title">Match {{match.1.match_name}}</h5>
                   <h6 class="dat">	&#x1F4C5; {{match.1.match_date}} &#8986; {{match.1.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
              </div>
         </div>
     </div>
@@ -196,8 +207,8 @@
            <div class="card-body">
                   <h5 class="card-title">Match {{match.2.match_name}}</h5>
                   <h6 class="dat">	&#x1F4C5; {{match.2.match_date}} &#8986; {{match.2.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
             </div>
         </div>
     </div>
@@ -207,8 +218,8 @@
             <div class="card-body">
                   <h5 class="card-title">Match {{match.3.match_name}}</h5>
                   <h6 class="dat">	&#x1F4C5; {{match.3.match_date}} &#8986; {{match.3.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
             </div>
         </div>
     </div>
@@ -231,8 +242,8 @@
             <div class="card-body">
               <h5 class="card-title">Match {{match.0.match_name}}</h5>
               <h6 class="dat">	&#x1F4C5; {{match.0.match_date}} &#8986; {{match.0.match_time}}</h6>
-              <p class="card-text"> &#x1f3c6 Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-              <a href="#" class="btn btn-primary" id="asd">Go somewhere</a>
+              <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
+              <a href="#" class="btn btn-primary" id="asd">JOIN NOW</a>
             </div>
         </div>
     </div>
@@ -242,8 +253,8 @@
              <div class="card-body">
                   <h5 class="card-title">Match {{match.1.match_name}}</h5>
                   <h6 class="dat">	&#x1F4C5; {{match.1.match_date}} &#8986; {{match.1.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
              </div>
         </div>
     </div>
@@ -253,8 +264,8 @@
            <div class="card-body">
                   <h5 class="card-title">Match {{match.2.match_name}}</h5>
                   <h6 class="dat">	&#x1F4C5; {{match.2.match_date}} &#8986; {{match.2.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
             </div>
         </div>
     </div>
@@ -264,8 +275,8 @@
             <div class="card-body">
                   <h5 class="card-title">Match {{match.3.match_name}}</h5>
                   <h6 class="dat">	<i class="fa fa-calendar"></i> {{match.3.match_date}} &#8986; {{match.3.match_time}}</h6>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
+                  <a href="#" class="btn btn-primary">JOIN NOW</a>
             </div>
         </div>
     </div>
