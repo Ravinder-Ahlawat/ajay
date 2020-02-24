@@ -7,7 +7,7 @@
      }
      .heading{
          font-family: "Comic Sans MS", cursive, sans-serif;
-         color: #B60626;
+         -webkit-animation:colorchange 5s infinite alternate;
          text-align: center;
          text-shadow: aqua;
      }
@@ -37,6 +37,77 @@
         font-family: Georgia, serif;
         font-size: medium;
      }
+     #btnjn{
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
+     }
+     #imo{
+         color: aliceblue;
+         text-decoration: double;
+         text-align: end;
+         -webkit-animation:colorchange 5s infinite alternate;
+        font-weight: bold;
+        font-size: 20px;
+        font-family: Bradley Hand, cursive;
+      
+    }
+
+    @-webkit-keyframes colorchange {
+      0% {
+        
+        color: blue;
+      }
+      
+      10% {
+        
+        color: black;
+      }
+      
+      20% {
+        
+        color: red;
+      }
+      
+      30% {
+        
+        color: yellow;
+      }
+      
+      40% {
+        
+        color: pink;
+      }
+      
+      50% {
+        
+        color: skyblue;
+      }
+      
+      60% {
+        
+        color: white;
+      }
+      
+      70% {
+        
+        color: green;
+      }
+      80% {
+     
+        color: purple;
+      }
+      
+      90% {
+     
+        color: orange;
+      }
+      
+      100% {
+        
+        color: brown;
+      }
+    }
 
  </style> 
  {% endblock %}
@@ -44,246 +115,39 @@
  <div class="card bg-dark text-white">
     <img class="card-img" src="/media/pubgh.jpg" alt="Card image">
     <div class="card-img-overlay">
-       
-      <p class="card-text">Last updated 3 mins ago</p>
+        <p class="card-text">Last updated 3 mins ago</p>
     </div>
-  </div>
-
+ </div>
 
 <!-- first text headline-->
 <div Class="hediv">
-<h1 Class="heading">&#9876;   SOLO MATCHES   &#9876;</h1>
+    <h1 Class="heading">&#9876;   UPCOMING MATCHES   &#9876;</h1>
 </div>
 
 <!-- Starting first cards row -->
 
 <div class="row mx-3">  
-    <div class="col">  
-        <div class="card">
-            <img class="card-img-top" src="{{ match.0.match_pics.url }}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Match {{match.0.match_name}}</h5>
-              <h6 class="dat">	&#x1F4C5; {{match.0.match_date}} &#8986; {{match.0.match_time}}</h6>
-              <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
-              <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.0.per_kill_prize}}</p>
-              <a href="#" class="btn btn-primary">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-             <img class="card-img-top" src="{{ match.1.match_pics.url }}" alt="Card image cap">
-             <div class="card-body">
-                  <h5 class="card-title">Match {{match.1.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.1.match_date}} &#8986; {{match.1.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.1.match_entry}}</p>
-                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.1.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.1.per_kill_prize}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-             </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-           <img class="card-img-top" src="{{ match.2.match_pics.url }}" alt="Card image cap">
-           <div class="card-body">
-                  <h5 class="card-title">Match {{match.2.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.2.match_date}} &#8986; {{match.2.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.2.match_entry}}</p>
-                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.2.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.2.per_kill_prize}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-            <img class="card-img-top" src="{{ match.3.match_pics.url }}" alt="Card image cap">
-            <div class="card-body">
-                  <h5 class="card-title">Match {{match.3.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.3.match_date}} &#8986; {{match.3.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.3.match_entry}}</p>
-                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.3.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.3.per_kill_prize}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End of first cards row -->
+    {% for i in match|slice:"0:" %}
+        
     
-
-<!-- second text headline-->
-<div Class="hediv">
-    <h1 class="heading">&#9876;   DUO MATCHES   &#9876;</h1>
+    <div class="col-3 my-3">
+        <div class="card">
+            <img class="card-img-top" src="{{ i.match_pics.url }}" alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">Match {{i.match_name}}</h5>
+                    <h6 class="dat">	&#x1F4C5; {{i.match_date}} &#8986; {{i.match_time}}</h6>
+                    <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{i.match_entry}}</p>
+                    <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{i.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.1.per_kill_prize}}</p>
+                    <a href="/mdview/{{i.id}}" class="btn btn-outline-warning" role="button" aria-pressed="true" id="btnjn">JOIN NOW</a>
+                </div>
+        </div>
+    </div>
+    
+    {% endfor %}
 </div>
 
 
-<!-- Starting 2nd cards row -->
-
-<div class="row mx-3">  
-    <div class="col">  
-        <div class="card">
-            <img class="card-img-top" src="{{ match.4.match_pics.url }}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Match {{match.4.match_name}}</h5>
-              <h6 class="dat">	&#x1F4C5; {{match.4.match_date}} &#8986; {{match.4.match_time}}</h6>
-              <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.4.match_entry}}</p>
-              <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.4.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.4.per_kill_prize}}</p>
-              <a href="#" class="btn btn-primary" id="asd">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-             <img class="card-img-top" src="{{ match.5.match_pics.url }}" alt="Card image cap">
-             <div class="card-body">
-                  <h5 class="card-title">Match {{match.5.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.5.match_date}} &#8986; {{match.5.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.5.match_entry}}</p>
-                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.5.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.5.per_kill_prize}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-             </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-           <img class="card-img-top" src="{{ match.6.match_pics.url }}" alt="Card image cap">
-           <div class="card-body">
-                  <h5 class="card-title">Match {{match.6.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.6.match_date}} &#8986; {{match.6.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.6.match_entry}}</p>
-                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.6.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.6.per_kill_prize}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-            <img class="card-img-top" src="{{ match.7.match_pics.url }}" alt="Card image cap">
-            <div class="card-body">
-                  <h5 class="card-title">Match {{match.7.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.7.match_date}} &#8986; {{match.7.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.7.match_entry}}</p>
-                 <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{match.7.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{match.7.per_kill_prize}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End of 2nd cards row -->
-
-<!-- 3rd text headline-->
-<div Class="hediv">
-    <h1 class="heading">&#9876;   SQUAD MATCHES   &#9876;</h1>
-</div>
-
-
-<!-- Starting 3rd cards row -->
-
-<div class="row mx-3">  
-    <div class="col">  
-        <div class="card">
-            <img class="card-img-top" src="{{ match.0.match_pics.url }}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Match {{match.0.match_name}}</h5>
-              <h6 class="dat">	&#x1F4C5; {{match.0.match_date}} &#8986; {{match.0.match_time}}</h6>
-              <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
-              <a href="#" class="btn btn-primary" id="asd">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-             <img class="card-img-top" src="{{ match.1.match_pics.url }}" alt="Card image cap">
-             <div class="card-body">
-                  <h5 class="card-title">Match {{match.1.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.1.match_date}} &#8986; {{match.1.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-             </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-           <img class="card-img-top" src="{{ match.2.match_pics.url }}" alt="Card image cap">
-           <div class="card-body">
-                  <h5 class="card-title">Match {{match.2.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.2.match_date}} &#8986; {{match.2.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-            <img class="card-img-top" src="{{ match.3.match_pics.url }}" alt="Card image cap">
-            <div class="card-body">
-                  <h5 class="card-title">Match {{match.3.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.3.match_date}} &#8986; {{match.3.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End of 3rd cards row -->
-
-
-<!-- 4th text headline-->
-<div Class="hediv">
-    <h1 class="heading">&#9876;   1v1 Challenge  &#9876;</h1>
-</div>
-
-
-<!-- Starting 4th cards row -->
-
-<div class="row mx-3">  
-    <div class="col">  
-        <div class="card">
-            <img class="card-img-top" src="{{ match.0.match_pics.url }}" alt="Card image cap">
-            <div class="card-body">
-              <h5 class="card-title">Match {{match.0.match_name}}</h5>
-              <h6 class="dat">	&#x1F4C5; {{match.0.match_date}} &#8986; {{match.0.match_time}}</h6>
-              <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
-              <a href="#" class="btn btn-primary" id="asd">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-             <img class="card-img-top" src="{{ match.1.match_pics.url }}" alt="Card image cap">
-             <div class="card-body">
-                  <h5 class="card-title">Match {{match.1.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.1.match_date}} &#8986; {{match.1.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-             </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-           <img class="card-img-top" src="{{ match.2.match_pics.url }}" alt="Card image cap">
-           <div class="card-body">
-                  <h5 class="card-title">Match {{match.2.match_name}}</h5>
-                  <h6 class="dat">	&#x1F4C5; {{match.2.match_date}} &#8986; {{match.2.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-    <div class="col">
-        <div class="card">
-            <img class="card-img-top" src="{{ match.3.match_pics.url }}" alt="Card image cap">
-            <div class="card-body">
-                  <h5 class="card-title">Match {{match.3.match_name}}</h5>
-                  <h6 class="dat">	<i class="fa fa-calendar"></i> {{match.3.match_date}} &#8986; {{match.3.match_time}}</h6>
-                 <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{match.0.match_entry}}</p>
-                  <a href="#" class="btn btn-primary">JOIN NOW</a>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- End of 4th cards row -->
-
-
+<!-- End of first cards row -->
 <!-- 5th text headline-->
 <div Class="hediv">
     <h1 class="heading">&#9876;   Previous Matches  &#9876;</h1>
@@ -293,24 +157,24 @@
 <!-- Starting of 5th row -->
 <div class="row mx-3">
     <div class="col-sm">
-        <h3> Match #0001 </h3>
+        <h3 style="text-align: center; color: aliceblue;"> Match #0001 </h3>
         <iframe width="400" height="250"
             src="https://www.youtube.com/embed/P3eCxiOXolI?autoplay=1">
         </iframe>
     </div>
     <div class="col-sm">
-        <h3> Match #0002 </h3>
+        <h3 style="text-align: center; color: aliceblue;"> Match #0002 </h3>
         <iframe width="400" height="250"
             src="https://www.youtube.com/embed/tuWPtzKNJhw?autoplay=1">
         </iframe>
     </div>
     <div class="col-sm">
-        <h3> Match #0003 </h3>
+        <h3 style="text-align: center; color: aliceblue;"> Match #0003 </h3>
         <iframe width="400" height="250"
             src="https://www.youtube.com/embed/pnMwZyB12KE?autoplay=1">
         </iframe>
     </div>
-  </div>
+</div>
 
 
 

@@ -1,0 +1,188 @@
+{% extends 'basic.html' %}
+{% block title%} Match Detail {% endblock %} 
+{% block head %}
+<!-- Add CSS here -->
+<style>
+    .req{
+        text-align: center;
+        color: red;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+    #reql{
+        color: chartreuse;
+        text-align: center;
+    }
+    #winh{
+        color: chartreuse;
+        text-align: center;
+    }
+    .prize{
+        color: chartreuse;
+        text-align: center;
+    }
+    #him{
+        max-width: 1200px;
+        max-height: 400px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    #overimg{
+        max-width: 200px;
+        max-height: 200px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: 150px;
+    }
+    .card-title, .dat2{
+        text-align: center;
+    }
+    #pjh{
+        text-align: center;
+        color: aliceblue;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+        border-style: double;
+        border-color: cyan;
+    }
+    #jbtn{
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        min-width: 400px;
+    }
+    .form-check{
+        color: aliceblue;
+        text-align: center;
+    }
+    #joinedp{
+        border-style: dashed;
+        color: aliceblue;
+        border-color: aliceblue;
+        text-align: center;
+    }
+    #roomhead{
+        text-align: center;
+        color: gold;
+    }
+    #pgbar{
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+        font-size: 15px;
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+</style>
+{% endblock %}
+{% block body %}
+<!-- Body of the page -->
+<div class="card bg-dark text-white">
+    <img id="him" src="/media/wp3276806-pubg-4k-wallpapers.jpg" class="card-img" alt="...">
+    <div class="card-img-overlay">
+      
+      <img id="overimg" src="{{match.match_pics.url}}" alt="...">
+      <h2 class="card-title my-3">MATCH :- {{match.match_name}}</h2>
+      <h3 class="dat2">	<i class="fa fa-calendar" aria-hidden="true"></i> {{match.match_date}} <i class="fa fa-clock-o" aria-hidden="true"></i> {{match.match_time}}</h3>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-8">
+            <div id="roomhead">
+            <h3>Room Details (visible 15 min. before match time)</h3>
+            <h5><i class="fa fa-hand-o-right" aria-hidden="true"></i> Room Id :- Visible Soon <i class="fa fa-hand-o-left" aria-hidden="true"></i>  <i class="fa fa-hand-o-right" aria-hidden="true"></i> Room Password :- Visible Soon <i class="fa fa-hand-o-left" aria-hidden="true"></i></h5>
+            </div>
+            <h1 id="pjh">PLAYER JOINED</h1>
+            <div class="progress my-3">
+                <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: {{joined}}%" aria-valuenow="{{joined}}" aria-valuemin="0" aria-valuemax="100"></div>
+                <p id="pgbar">{{joined}} out of 100</p>
+            </div>
+            <div class="container">
+                <div class="row">
+                    {% for i in join|slice:"0:" %}
+                  <div class="col-4">
+                    <ul>   
+                        <li id="joinedp">Name :- {{i.username}} <br> PUBG Id :- {{i.pubg_id}}</li>
+                    </ul>
+                  </div>
+                  {% endfor %}
+                </div>
+            </div>
+           
+        </div>
+        <div class="col-4">
+            <h2 class="req"> Match Details </h2>
+            <ul id="reql">
+                <li>Type :- {{match.match_type}}</li>
+                <LI>Map :- {{match.match_map}}</LI>
+                <li>Mode :- TPP</li>
+            </ul>
+            <h2 class="req">Requirements</h2>
+            <ul id="reql">
+                <li>Tier - Platinum and above</li>
+                <li>Minimum matches played -100</li>
+                <li>Level - 35 and above</li>
+                <li>Minimum 3 seasons played</li>
+                <li>Emulator players are not allowed</li>
+                <li>No team up allowed (otherwise permanently Banned)</li>
+            </ul>
+            <br>
+            <br>
+            <h3 class="req">Winner Winner Chicken Dinner</h3>
+            <h3 class="prize"><i class="fa fa-trophy" aria-hidden="true"> Winner = {{match.winner_prize}}</i></h3>
+            <h3 class="prize"><i class="fa fa-trophy" aria-hidden="true"> Per Kill = {{match.per_kill_prize}}</i></h3>
+            <h3 class="prize"><i class="fa fa-trophy" aria-hidden="true"> Entry = {{match.match_entry}}</i></h3>
+        </div>
+    </div>
+</div>
+
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+      I agree <a href="/termsandconditions/">terms and conditions.</a>
+    </label>
+  </div>
+  <h3>{{user.username}}</h3>
+  
+  
+
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-outline-success my-5" data-toggle="modal" data-target="#exampleModalCenter" id="jbtn">
+    JOIN NOW
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">JOIN BY FILL DETAILS</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <form action="sub" method="POST">
+                {% csrf_token %}
+            <input type="hidden" name="match_id" id="match_id" value="{{ myid }}">
+            <input type="hidden" name="match_name" id="match_name" value="{{match.match_name}}">
+            <input type="text" name="username" placeholder="User Name">
+            <input type="text" name="pubg_name" placeholder="PUBG UserName">
+            <input type="text" name="pubg_id" placeholder="PUBG ID">
+        
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-primary">JOIN NOW</button>
+        </div>
+    </form>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+{% endblock %}

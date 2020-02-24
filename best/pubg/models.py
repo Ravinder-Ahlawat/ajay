@@ -13,4 +13,13 @@ class Match(models.Model):
     per_kill_prize = models.IntegerField()
     winner_prize = models.IntegerField()
     match_pics = models.ImageField(default='')
+
+
+class Join(models.Model):
+    username = models.CharField(max_length=20)
+    pubg_id = models.IntegerField()
+    Match_id = models.IntegerField()
+    match_name = models.CharField(max_length=20)
+    pubg_name = models.CharField(max_length=20)
+
     
