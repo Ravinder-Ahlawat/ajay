@@ -6,5 +6,6 @@ urlpatterns = [
     path('', views.index, name="Home"),
     path('mdview/<int:myid>', views.mdview, name="MatchDetail"),
     path('termsandconditions/', views.tandc, name="Terms"),
-    path('mdview/sub', views.joinnow, name="Submit")
+    path('mdview/sub', views.joinnow, name="Submit"),
+    path('asd/', views.asd, name="profile")
 ]

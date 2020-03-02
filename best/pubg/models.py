@@ -23,3 +23,7 @@ class Join(models.Model):
     pubg_name = models.CharField(max_length=20)
 
     
+class Links(models.Model):
+    Heading = models.CharField(max_length=50)
+    link = models.URLField()
+
