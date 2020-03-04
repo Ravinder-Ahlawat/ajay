@@ -135,7 +135,7 @@
             <img class="card-img-top" src="{{ i.match_pics.url }}" alt="Card image cap">
                 <div class="card-body">
                     <h5 class="card-title">Match {{i.match_name}}</h5>
-                    <h6 class="dat">	&#x1F4C5; {{i.match_date}} &#8986; {{i.match_time}}</h6>
+                    <h6 class="dat">	<i class="fa fa-calendar" aria-hidden="true"></i> {{i.match_date}} <i class="fa fa-clock-o" aria-hidden="true"></i> {{i.match_time}}</h6>
                     <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{i.match_entry}}</p>
                     <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{i.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{i.per_kill_prize}}</p>
                     {% if i.match_date >= today %}

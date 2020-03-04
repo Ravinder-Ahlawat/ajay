@@ -63,5 +63,20 @@ def logout(request):
     return redirect('/')
 
 
-def aj(request):
-    return render(request, 'login.html')
+def aj(request, user):
+    if request.method == 'POST':
+        user = request.POST['user']
+        pubg_id = request.POST['pubg_id']
+        pubg_username = request.POST['pubg_username']
+        mobile_no = request.POST['mobile']
+        clan = request.POST['clan_name']
+        info = pubg_info(user=user, pubg_id=pubg_id, pubg_username=pubg_username, mobile_no=mobile_no, clan=clan)
+        info.save()
+        messages.info(request, 'profile updated')
+        return render(request, 'login.html')
+        
+    else:
+        infos = pubg_info.objects.filter(user=user)
+        print(infos[0])
+        return render(request, 'login.html', {'infos':infos[0]})
+    
