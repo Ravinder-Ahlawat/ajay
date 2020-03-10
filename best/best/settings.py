@@ -26,7 +26,7 @@ SECRET_KEY = 'k80go$m_ww-9e#q3)+ize^$oasi+x*(0em$@=uzcyth6#62fs2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['64.227.29.18']
+ALLOWED_HOSTS = ['64.227.29.18', 'www.gamekeeda.games', 'gamekeeda.games']
 
 
 
