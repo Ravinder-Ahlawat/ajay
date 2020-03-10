@@ -2,6 +2,7 @@
  {% block title%} Home Page {% endblock %} 
  {% block head %}
  <style>
+
      .card-img{
          max-height: 600px;        
      }
@@ -110,18 +111,29 @@
     }
 
  </style> 
+
+
+
+
+
+
  {% endblock %}
  {% block body %}
  <div class="card bg-dark text-white">
-    <img class="card-img" src="/media/pubgh.jpg" alt="Card image">
+    <img class="card-img" src="/media/Tournament_poster.jpg" alt="Card image">
     <div class="card-img-overlay">
-        <p class="card-text">Last updated 3 mins ago</p>
+      {% if user.is_authenticated %}
+        <p class="card-text">Hello,{{user.first_name}} {{user.last_name}}</p>
+        <p class="card-text">{{data.pubg_name}}</p>
+        <p class="card-text" id="must1">
+{% endif %}
+        </p>
     </div>
  </div>
 
 <!-- first text headline-->
 <div Class="hediv">
-    <h1 Class="heading">&#9876;   UPCOMING MATCHES   &#9876;</h1>
+    <h1 Class="heading" id="head1">&#9876;   UPCOMING MATCHES   &#9876;</h1>
 </div>
 
 <!-- Starting first cards row -->
@@ -139,9 +151,9 @@
                     <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{i.match_entry}}</p>
                     <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>{{i.winner_prize}}  <i class="fa fa-arrows-h"></i>  Per Kill: <i class="fa fa-inr" aria-hidden="true"></i> {{i.per_kill_prize}}</p>
                     {% if i.match_date >= today %}
-                    <a href="/mdview/{{i.id}}" class="btn btn-outline-warning" role="button" aria-pressed="true" id="btnjn">JOIN NOW</a>
+                    <a href="/mdview/{{i.id}}" onclick="myFunction()" class="btn btn-outline-warning" role="button" aria-pressed="true" id="btnjn">JOIN NOW</a>
                     {% else %}
-                    <h4>match completed</h4>
+                    <a class="btn btn-outline-warning" role="button" aria-pressed="true" id="btnjn">Match Completed</a>
                     {% endif%}
                 </div>
         </div>
@@ -152,6 +164,9 @@
 
 
 <!-- End of first cards row -->
+
+
+
 <!-- 5th text headline-->
 <div Class="hediv">
     <h1 class="heading">&#9876;   Previous Matches  &#9876;</h1>
@@ -179,6 +194,15 @@
         </iframe>
     </div>
 </div>
+
+
+
+
+<!-- <script>
+window.onload = function(){
+      document.getElementById('path2').click();
+}
+</script> -->
 
 
 

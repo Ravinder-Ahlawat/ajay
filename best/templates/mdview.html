@@ -383,14 +383,21 @@ img.rounded {
     margin-right: 12px;
     opacity: .5;
 }
-
-
-
+#path2{
+    visibility: hidden;
+}
+#tac{
+    text-decoration: underline;
+    color: blue;
+}
+.roomdetail{
+    text-align: center;
+}
     </style>
 {% endblock %}
 {% block body %}
 
-<body class="profile-page">
+<div class="profile-page" id="onlo">
     <div class="page-header header-filter" data-parallax="true" style="background-image:url('/media/wp3276806-pubg-4k-wallpapers.jpg');"></div>
     <div class="main main-raised">
 		<div class="profile-content">
@@ -412,10 +419,12 @@ img.rounded {
                 <div class="container">
                     <div class="row">
                         <div class="col-8">
+                            {% if user.is_authenticated %}
                             <div id="roomhead">
-                            <h3>Room Details (visible 15 min. before match time)</h3>
-                            <h5><i class="fa fa-hand-o-right" aria-hidden="true"></i> Room Id :- Visible Soon <i class="fa fa-hand-o-left" aria-hidden="true"></i>  <i class="fa fa-hand-o-right" aria-hidden="true"></i> Room Password :- Visible Soon <i class="fa fa-hand-o-left" aria-hidden="true"></i></h5>
+                            <h3 class="roomdetail">Room Details (visible 15 min. before match time)</h3>
+                            <h5 class="roomdetail"><i class="fa fa-hand-o-right" aria-hidden="true"></i> Room Id :- <span id="rid">Visible Soon</span> <i class="fa fa-hand-o-left" aria-hidden="true"></i>  <i class="fa fa-hand-o-right" aria-hidden="true"></i> Room Password :- <span id="rpass">Visible Soon</span> <i class="fa fa-hand-o-left" aria-hidden="true"></i></h5>
                             </div>
+                            {% endif %}
                             <h1 id="pjh">PLAYER JOINED</h1>
                             <div class="progress my-3">
                                 <div class="progress-bar progress-bar-striped bg-warning" role="progressbar" style="width: {{joined}}%" aria-valuenow="{{joined}}" aria-valuemin="0" aria-valuemax="100"></div>
@@ -459,27 +468,70 @@ img.rounded {
                         </div>
                     </div>
                 </div>
-                {{pubg_info.user.pubg_id}}
-                {% if joined <= 95 %}
+                <H1>{{details.pubg_id}}</H1>
+                {% if user.is_authenticated %}
+                {% if joined <= 99 %}
                 <form action="sub" method="POST">
                     {% csrf_token %}
                 <input type="hidden" name="match_id" id="match_id" value="{{ myid }}">
                 <input type="hidden" name="match_name" id="match_name" value="{{match.match_name}}">
                 <input type="hidden" name="username" id="username" value="{{user.username}}">
-                <input type="text" name="pubg_name" placeholder="PUBG UserName">
-                <input type="text" name="pubg_id" placeholder="PUBG ID">
+                <input type="hidden" name="amount" id="amount" value="{{match.match_entry}}">
+                <input type="hidden" name="email" id="email" value="{{user.email}}">
+                <div class="pubginfo mx-3">
+                    <label>PUBG Name</label>
+                    <input type="text" name="pubg_name" placeholder="PUBG UserName">
+                    <span class="mx-5"></span>
+                    <label>PUBG Name</label>
+                    <input type="text" name="pubg_id" placeholder="PUBG ID">
+                </div>
             
-                <div class="form-check">
+                <div class="form-check my-3 mx-3">
                     <input class="form-check-input" type="checkbox" required value="" id="defaultCheck1">
                     <label class="form-check-label" for="defaultCheck1">
-                      I agree <a href="/termsandconditions/">terms and conditions.</a>
+                      I agree <a href="/termsandconditions/" id="tac">terms and conditions.</a>
                     </label>
                   </div>
-                  <input type="submit">
+                  <input type="submit" class="btn btn-outline-success mx-3">
                 </form>
+            </div>
+
                   
     {% else %}
-    <h2>Room Full. No more space </h2>
+    <h5>Room Full. No more space </h5>
+    <p><small> try any other match here.<a href="/#head1">New Match</a></small></p>
     {% endif %}
-	
+
+    {% else %}
+    <h4>Please Sign In to join a match</h4>
+    <a href="/">Join Now</a>
+
+    
+		</div>
+    {% endif %}
+ 
+
+
+<script>
+    //function for visibility of room detail at time
+    window.setInterval(function(){
+    var date = new Date();
+    var j_date = {{match.match_date.day}};
+    var j_month = {{match.match_date.month}};
+    var j_year = {{match.match_date.year}};
+    var hrs = ({{match.match_time.hour}} * 60 + {{match.match_time.minute}}) - 15;
+    var j_minutes = hrs % 60;
+    var j_hours = (hrs - j_minutes) / 60;
+    
+    if(date.getHours() === j_hours && date.getMinutes() >= j_minutes && date.getDate() === j_date && date.getMonth() + 1 === j_month && date.getFullYear() === j_year){ 
+        document.getElementById('rid').innerHTML = {{match.room_id}};
+        document.getElementById('rpass').innerHTML = {{match.room_pass}};
+    }
+}, 60);
+
+
+</script>
     {% endblock %}
+
+
+    

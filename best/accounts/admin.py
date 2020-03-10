@@ -1,6 +1,6 @@
 from django.contrib import admin
-from .models import pubg_info, wirthdraw
+from .models import wirthdraw, UserDetails
 
 # Register your models here.
-admin.site.register(pubg_info)
+admin.site.register(UserDetails)
 admin.site.register(wirthdraw)

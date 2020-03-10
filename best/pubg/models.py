@@ -13,8 +13,8 @@ class Match(models.Model):
     per_kill_prize = models.IntegerField()
     winner_prize = models.IntegerField()
     match_pics = models.ImageField(default='')
-    room_id = models.CharField(max_length=10, default='')
-    room_pass = models.CharField(max_length=10, default='')
+    room_id = models.CharField(max_length=10, default='', blank='True')
+    room_pass = models.CharField(max_length=10, default='', blank='True')
 
 
 class Join(models.Model):
@@ -25,9 +25,19 @@ class Join(models.Model):
     pubg_name = models.CharField(max_length=20)
     kill = models.IntegerField(null=True)
     win = models.CharField(max_length=3, default='')
+    Email = models.CharField(max_length=80, default='')
+    amount = models.IntegerField(null=True, default=0)
+    order_id = models.CharField(max_length=10, default='')
 
     
 class Links(models.Model):
     Heading = models.CharField(max_length=50)
     link = models.URLField()
 
+
+class Contact(models.Model):
+    msg_id = models.AutoField(primary_key=True)
+    name = models.CharField(max_length=50)
+    email = models.CharField(max_length=70, default="")
+    country = models.CharField(max_length=70, default="")
+    desc = models.CharField(max_length=500, default="")
