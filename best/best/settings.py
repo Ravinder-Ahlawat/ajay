@@ -26,7 +26,7 @@ SECRET_KEY = 'k80go$m_ww-9e#q3)+ize^$oasi+x*(0em$@=uzcyth6#62fs2'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['64.227.29.18']
 
 
 
@@ -81,9 +81,9 @@ WSGI_APPLICATION = 'best.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ravinder',
-        'USER': 'postgres',
-        'PASSWORD': 'imahlawat@10',
+        'NAME': 'gkdb',
+        'USER': 'db_admin',
+        'PASSWORD': 'ibtcjp@3',
         'HOST': 'localhost'
     }
 }
@@ -126,11 +126,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # media files (.jpg, mp3, mp4. gif)
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
-
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
