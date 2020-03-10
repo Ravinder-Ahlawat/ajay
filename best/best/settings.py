@@ -80,11 +80,12 @@ WSGI_APPLICATION = 'best.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'gkdb',
         'USER': 'db_admin',
         'PASSWORD': 'ibtcjp@3',
-        'HOST': 'localhost'
+        'HOST': 'localhost',
+        'PORT': '',
     }
 }
 
