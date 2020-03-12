@@ -393,15 +393,23 @@ img.rounded {
 .roomdetail{
     text-align: center;
 }
+#errorm{
+    text-align: center;
+    color: red;
+    font-size: 24px;
+}
     </style>
 {% endblock %}
 {% block body %}
 
 <div class="profile-page" id="onlo">
+    {% for message in messages %}
+                <p id="errorm">** {{message}} **</p>
+                {% endfor %}
     <div class="page-header header-filter" data-parallax="true" style="background-image:url('/media/wp3276806-pubg-4k-wallpapers.jpg');"></div>
     <div class="main main-raised">
 		<div class="profile-content">
-            <div class="container">
+            <div class="container-fluid">
                 <div class="row">
 	                <div class="col-md-6 ml-auto mr-auto">
         	           <div class="profile">
@@ -418,7 +426,7 @@ img.rounded {
                 </div>
                 <div class="container">
                     <div class="row">
-                        <div class="col-8">
+                        <div class="col-md-8">
                             {% if user.is_authenticated %}
                             <div id="roomhead">
                             <h3 class="roomdetail">Room Details (visible 15 min. before match time)</h3>
@@ -433,7 +441,7 @@ img.rounded {
                             <div class="container">
                                 <div class="row">
                                     {% for i in join|slice:"0:" %}
-                                  <div class="col-4">
+                                  <div class="col-md-4">
                                     <ul>   
                                         <li id="joinedp">Name :- {{i.username}} <br> PUBG Id :- {{i.pubg_id}}</li>
                                     </ul>
@@ -443,7 +451,7 @@ img.rounded {
                             </div>
                            
                         </div>
-                        <div class="col-4">
+                        <div class="col-md-4">
                             <h2 class="req"> Match Details </h2>
                             <ul id="reql">
                                 <li>Type :- {{match.match_type}}</li>
@@ -474,16 +482,17 @@ img.rounded {
                 <form action="sub" method="POST">
                     {% csrf_token %}
                 <input type="hidden" name="match_id" id="match_id" value="{{ myid }}">
+                <input type="hidden" name="uid" id="uid" value="{{ user.id }}">
                 <input type="hidden" name="match_name" id="match_name" value="{{match.match_name}}">
                 <input type="hidden" name="username" id="username" value="{{user.username}}">
                 <input type="hidden" name="amount" id="amount" value="{{match.match_entry}}">
                 <input type="hidden" name="email" id="email" value="{{user.email}}">
                 <div class="pubginfo mx-3">
-                    <label>PUBG Name</label>
+                    <label>PUBG Name:-</label>
                     <input type="text" name="pubg_name" placeholder="PUBG UserName">
                     <span class="mx-5"></span>
-                    <label>PUBG Name</label>
-                    <input type="text" name="pubg_id" placeholder="PUBG ID">
+                    <label class="mr-3">PUBG ID :-</label>
+                    <input class="ml-2"type="text" name="pubg_id" placeholder="PUBG ID">
                 </div>
             
                 <div class="form-check my-3 mx-3">

@@ -75,30 +75,41 @@ def joinnow(request):
     pubg_name = request.POST['pubg_name']
     amount = request.POST['amount']
     Email = request.POST['email']
+    uid = request.POST['uid']
     order = str(pubg_id)+str(Match_id)
     order_id = order[5:10]
-    print(order_id)
-    # if Join.objects.filter(username=username, Match_id=Match_id).exists():
-    #      messages.info(request, 'pass not matching...')
 
-    # else:
-    join = Join(username=username, pubg_id=pubg_id, pubg_name=pubg_name, Match_id=Match_id, match_name=match_name, Email=Email, amount=amount)
-    join.save();
-    param_dict = {
+    if Join.objects.filter(username=username, Match_id=Match_id).exists():
+         messages.info(request, 'Already joined the match')
+         a = '/mdview/' + str(Match_id)
+         print(a)
+         return redirect(a)
 
-            'MID': 'WorldP64425807474247',
-            'ORDER_ID': order_id,
-            'TXN_AMOUNT': amount,
-            'CUST_ID': Email,
-            'INDUSTRY_TYPE_ID': 'Retail',
-            'WEBSITE': 'WEBSTAGING',
-            'CHANNEL_ID': 'WEB',
-            'CALLBACK_URL':'http://64.227.29.18/handlerequest/',
 
-        }
-    param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
-    return render(request, 'paytm.html', {'param_dict': param_dict})
-    # return redirect('/')
+    else:
+        join = Join(username=username, pubg_id=pubg_id, pubg_name=pubg_name, Match_id=Match_id, match_name=match_name, Email=Email, amount=amount)
+        join.save();
+        print(amount)
+        if amount == '0':
+            return redirect('/')
+        else:
+            param_dict = {
+
+                'MID': 'WorldP64425807474247',
+                'ORDER_ID': order_id,
+                'TXN_AMOUNT': amount,
+                'CUST_ID': Email,
+                'INDUSTRY_TYPE_ID': 'Retail',
+                'WEBSITE': 'WEBSTAGING',
+                'CHANNEL_ID': 'WEB',
+                'CALLBACK_URL':'http://64.227.29.18/handlerequest/',
+
+            }
+            param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
+            return render(request, 'paytm.html', {'param_dict': param_dict})
+        
+            
+    return redirect('/')
 
 
 # User profile page
@@ -118,9 +129,6 @@ def handlerequest(request):
             checksum = form[i]
 
     verify = Checksum.verify_checksum(response_dict, MERCHANT_KEY, checksum)
-    if verify:
-        if response_dict['RESPCODE'] == '01':
-            print('order successful')
-        else:
-            print('order was not successful because' + response_dict['RESPMSG'])
+    print(response_dict.get("RESPCODE"))
+   
     return render(request, 'paymentstatus.html', {'response': response_dict})

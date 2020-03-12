@@ -24,9 +24,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'k80go$m_ww-9e#q3)+ize^$oasi+x*(0em$@=uzcyth6#62fs2'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['64.227.29.18', 'www.gamekeeda.games', 'gamekeeda.games']
+ALLOWED_HOSTS = ['127.0.0.1', '64.227.29.18', 'www.gamekeeda.games', 'gamekeeda.games']
 
 
 
@@ -41,7 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accounts'
+    'accounts.apps.AccountsConfig',
 ]
 
 MIDDLEWARE = [
@@ -77,8 +77,16 @@ WSGI_APPLICATION = 'best.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+if DEBUG:
+    DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
+}
 
-DATABASES = {
+else:
+    DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'gkdb',
@@ -140,5 +148,5 @@ EMAIL_HOST_USER = 'gamingkeeda.gaming@gmail.com'
 EMAIL_HOST_PASSWORD = 'rpqsgqpaaowpqqbg'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-DEFAULT_FROM_EMAIL = 'CodingWithMitch Team <noreply@codingwithmitch.com>'
+DEFAULT_FROM_EMAIL = 'GAMINGKEEDA Team <noreply@gamingkeeda.in>'
 

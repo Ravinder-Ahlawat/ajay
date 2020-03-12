@@ -18,6 +18,8 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
+from pubg import views as pubg_views
+from accounts import views as accounts_views
 
 
 urlpatterns = [
@@ -43,5 +45,7 @@ urlpatterns = [
          auth_views.PasswordResetCompleteView.as_view(
              template_name='password_reset_complete.html'
          ),
-         name='password_reset_complete'),    
+         name='password_reset_complete'),
+
+   
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
