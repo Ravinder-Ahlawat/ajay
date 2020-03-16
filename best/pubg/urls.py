@@ -11,5 +11,6 @@ urlpatterns = [
     path('asd/', views.asd, name="profile"),
     path('handlerequest/', views.handlerequest, name="HandleRequest"),
     path('moregames/', views.csoon, name="MoreGames"),
-    path('contact/', views.contact, name="CountactUs")
+    path('contact/', views.contact, name="CountactUs"),
+    path('handlerequest/fordel', views.delforpay, name="fordel")
 ]

@@ -18,8 +18,7 @@ from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
-from pubg import views as pubg_views
-from accounts import views as accounts_views
+
 
 
 urlpatterns = [

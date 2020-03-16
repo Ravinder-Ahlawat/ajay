@@ -21,12 +21,11 @@ def index(request):
     params = {'match': abc, 'range':range(0, no_of_cards), 'link':link, 'today':today}
     return render(request, 'index.html', params)
 
-# uid = 20
+
 
 
 #for form submition
 def sub2(request):
-    # global uid
     uid = request.POST['id']
     path2 = request.POST['path2']
     return redirect(path2)
@@ -36,13 +35,10 @@ def sub2(request):
 def mdview(request, myid):
     # fetching the matches using id
     match = Match.objects.filter(id=myid)
-    join = Join.objects.filter(Match_id=myid)
-    joined = len(join)
-    # print(uid)
-    # details = UserDetails.objects.filter(user_id=uid)
-    # print(details)
+    joins = Join.objects.filter(Match_id=myid)
+    joined = len(joins)
     # request paytm to transfer the amount to your account after payment by user
-    return render(request, 'mdview.html', {'match':match[0],'myid':myid, 'join':join, 'joined':joined})
+    return render(request, 'mdview.html', {'match':match[0],'myid':myid, 'join':joins, 'joined':joined})
 
 
 #for terms and conditions page
@@ -65,6 +61,7 @@ def contact(request):
     return render(request, 'contact.html')
 
 
+
 # for join in a match
 def joinnow(request):
     
@@ -72,24 +69,20 @@ def joinnow(request):
     pubg_id = request.POST['pubg_id']
     Match_id = request.POST['match_id']
     match_name = request.POST['match_name']
-    pubg_name = request.POST['pubg_name']
     amount = request.POST['amount']
     Email = request.POST['email']
     uid = request.POST['uid']
-    order = str(pubg_id)+str(Match_id)
-    order_id = order[5:10]
-
+    order = str(pubg_id)+str(Match_id)+str(uid)
+    order_id = order[-5:]
     if Join.objects.filter(username=username, Match_id=Match_id).exists():
          messages.info(request, 'Already joined the match')
          a = '/mdview/' + str(Match_id)
-         print(a)
          return redirect(a)
 
 
     else:
-        join = Join(username=username, pubg_id=pubg_id, pubg_name=pubg_name, Match_id=Match_id, match_name=match_name, Email=Email, amount=amount)
+        join = Join(username=username, pubg_id=pubg_id, Match_id=Match_id, match_name=match_name, Email=Email, amount=amount, user_id=uid)
         join.save();
-        print(amount)
         if amount == '0':
             return redirect('/')
         else:
@@ -102,7 +95,7 @@ def joinnow(request):
                 'INDUSTRY_TYPE_ID': 'Retail',
                 'WEBSITE': 'WEBSTAGING',
                 'CHANNEL_ID': 'WEB',
-                'CALLBACK_URL':'http://64.227.29.18/handlerequest/',
+                'CALLBACK_URL':'http://127.0.0.1:8000/handlerequest/',
 
             }
             param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
@@ -110,6 +103,8 @@ def joinnow(request):
         
             
     return redirect('/')
+
+
 
 
 # User profile page
@@ -129,6 +124,13 @@ def handlerequest(request):
             checksum = form[i]
 
     verify = Checksum.verify_checksum(response_dict, MERCHANT_KEY, checksum)
-    print(response_dict.get("RESPCODE"))
-   
     return render(request, 'paymentstatus.html', {'response': response_dict})
+
+
+def delforpay(request):
+    uid = request.POST['uid']
+    mid = request.POST['mid']
+    a = '/mdview/' + str(mid)
+    Join.objects.filter(user_id=uid, Match_id=mid).delete()
+    messages.info(request, 'Payment Failed Please Try Again..')
+    return redirect(a)

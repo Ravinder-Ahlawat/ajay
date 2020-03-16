@@ -28,6 +28,7 @@ class Join(models.Model):
     Email = models.CharField(max_length=80, default='')
     amount = models.IntegerField(null=True, default=0)
     order_id = models.CharField(max_length=10, default='')
+    user_id = models.IntegerField(default=0)
 
     
 class Links(models.Model):

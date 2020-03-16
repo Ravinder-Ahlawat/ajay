@@ -16,6 +16,9 @@
         margin-right: 20%;
         text-align: center;
     }
+    #ford{
+        visibility: hidden;
+    }
 </style>
 
 {% endblock %}
@@ -36,14 +39,23 @@
         <h1 style="text-align: center;">FAIL TO JOIN MATCH</h1>
         <p id="msg">{{response.RESPMSG}}.</p>
         <p style="text-align: center; color: blue;">Search for more Matches <a href="/#heading1">Click Here</a></p>
+        <form action="fordel" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="uid" value="{{response.ORDERID|slice:'-1:'}}">
+            <input type="hidden" name="mid" value="{{response.ORDERID|slice:'-2:-1'}}">
+            <input type="submit" id="ford">
+
+        </form>
+        {% endif %}
         
-        {% endif%}
 
     </div>
 
 </div>
-{% endblock %}
-{% block js %}
 <script>
+            window.onload = function(){
+      document.getElementById('ford').click();
+    
+    }
 </script>
 {% endblock %}
