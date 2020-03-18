@@ -35,7 +35,7 @@ def sub2(request):
 def mdview(request, myid):
     # fetching the matches using id
     match = Match.objects.filter(id=myid)
-    joins = Join.objects.filter(Match_id=myid)
+    joins = Join.objects.filter(Match_id=myid, payment=True)
     joined = len(joins)
     # request paytm to transfer the amount to your account after payment by user
     return render(request, 'mdview.html', {'match':match[0],'myid':myid, 'join':joins, 'joined':joined})
@@ -74,16 +74,17 @@ def joinnow(request):
     uid = request.POST['uid']
     order = str(pubg_id)+str(Match_id)+str(uid)
     order_id = order[-5:]
+    Join.objects.filter(payment=False).delete()
     if Join.objects.filter(username=username, Match_id=Match_id).exists():
          messages.info(request, 'Already joined the match')
          a = '/mdview/' + str(Match_id)
          return redirect(a)
 
 
-    else:
-        join = Join(username=username, pubg_id=pubg_id, Match_id=Match_id, match_name=match_name, Email=Email, amount=amount, user_id=uid)
-        join.save();
+    else: 
+        join = Join(username=username, pubg_id=pubg_id, Match_id=Match_id, match_name=match_name, Email=Email, amount=amount, user_id=uid, payment=False)
         if amount == '0':
+            join.save();
             return redirect('/')
         else:
             param_dict = {
@@ -99,6 +100,7 @@ def joinnow(request):
 
             }
             param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
+            join.save();
             return render(request, 'paytm.html', {'param_dict': param_dict})
         
             
@@ -131,6 +133,6 @@ def delforpay(request):
     uid = request.POST['uid']
     mid = request.POST['mid']
     a = '/mdview/' + str(mid)
-    Join.objects.filter(user_id=uid, Match_id=mid).delete()
-    messages.info(request, 'Payment Failed Please Try Again..')
+    Join.objects.filter(user_id=uid, Match_id=mid).update(payment=True)
+    messages.info(request, 'Joined Match Successfully..')
     return redirect(a)

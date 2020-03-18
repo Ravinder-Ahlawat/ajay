@@ -29,6 +29,7 @@ class Join(models.Model):
     amount = models.IntegerField(null=True, default=0)
     order_id = models.CharField(max_length=10, default='')
     user_id = models.IntegerField(default=0)
+    payment =models.BooleanField(default=False)
 
     
 class Links(models.Model):

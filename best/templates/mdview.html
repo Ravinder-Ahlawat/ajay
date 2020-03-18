@@ -470,14 +470,12 @@ img.rounded {
                             <br>
                             <br>
                             <h3 class="req">Winner Winner Chicken Dinner</h3>
-                            {{user.id}}
                             <h3 class="prize"><i class="fa fa-trophy" aria-hidden="true"> Winner = {{match.winner_prize}}</i></h3>
                             <h3 class="prize"><i class="fa fa-trophy" aria-hidden="true"> Per Kill = {{match.per_kill_prize}}</i></h3>
                             <h3 class="prize"><i class="fa fa-trophy" aria-hidden="true"> Entry = {{match.match_entry}}</i></h3>
                         </div>
                     </div>
                 </div>
-                <H1>{{details.pubg_id}}</H1>
                 {% if user.is_authenticated %}
                 {% if joined <= 99 %}
                 <form action="sub" method="POST">
@@ -489,9 +487,6 @@ img.rounded {
                 <input type="hidden" name="amount" id="amount" value="{{match.match_entry}}">
                 <input type="hidden" name="email" id="email" value="{{user.email}}">
                 <div class="pubginfo mx-3">
-                    <!-- <label>PUBG Name:-</label>
-                    <input type="text" name="pubg_name" placeholder="PUBG UserName">
-                    <span class="mx-5"></span> -->
                     <label class="mr-3">PUBG ID :-</label>
                     <input class="ml-2"type="text" name="pubg_id" placeholder="PUBG ID">
                 </div>
