@@ -1,6 +1,8 @@
 {% extends 'basic.html' %}
- {% block title%} Home Page {% endblock %} 
+ {% block title%} Home | GamingKeeda - Play, Win and Earn! {% endblock %} 
  {% block head %}
+ <meta name="description" content="Play! Win! and Earn! Best Pubg Mobile Tournament website. Come to earn by play PUBG. Best match making low entry fee and high prizepool. Trusted by many youtubers.">
+ <meta name="keywords" content="Gaming Keeda, gamingkeeda, gaming keeda, PUBG Tournament, play and earn, Play games and earn, Esports india, Free pubg Tournament, Daily pubg Matches">
  <style>
 
      .card-img{
@@ -10,7 +12,6 @@
          font-family: "Comic Sans MS", cursive, sans-serif;
          -webkit-animation:colorchange 5s infinite alternate;
          text-align: center;
-         text-shadow: aqua;
      }
      .hediv{
         border-radius: 5px;
@@ -19,8 +20,8 @@
         margin: 5px;
      }
      .card-img-top{
-         max-width: 286;
-         max-height: 180;
+         max-width: 286px;
+         max-height: 180px;
      }
      .card-title{
          text-align: center;
@@ -38,7 +39,7 @@
         font-family: Georgia, serif;
         font-size: medium;
      }
-     #btnjn{
+     #btnjn, #btnjn1{
       display: block;
       margin-left: auto;
       margin-right: auto;
@@ -124,9 +125,8 @@
     <div class="card-img-overlay">
       {% if user.is_authenticated %}
         <p class="card-text">Hello,{{user.first_name}} {{user.last_name}}</p>
-        <p class="card-text" id="must1">
 {% endif %}
-        </p>
+        
     </div>
  </div>
 
@@ -152,7 +152,7 @@
                     {% if i.match_date >= today %}
                     <a href="/mdview/{{i.id}}" onclick="myFunction()" class="btn btn-outline-warning" role="button" aria-pressed="true" id="btnjn">JOIN NOW</a>
                     {% else %}
-                    <a class="btn btn-outline-warning" role="button" aria-pressed="true" id="btnjn">Match Completed</a>
+                    <a class="btn btn-outline-warning" role="button" aria-pressed="true" id="btnjn1">Match Completed</a>
                     {% endif%}
                     
                 </div>
@@ -178,19 +178,19 @@
 <div class="row mx-3">
     <div class="col-sm">
         <h3 style="text-align: center; color: aliceblue;"> Match #0001 </h3>
-        <iframe width="300px"
+        <iframe width="300"
             src="https://www.youtube.com/embed/P3eCxiOXolI?autoplay=1">
         </iframe>
     </div>
     <div class="col-sm">
         <h3 style="text-align: center; color: aliceblue;"> Match #0002 </h3>
-        <iframe width="300px"
+        <iframe width="300"
             src="https://www.youtube.com/embed/tuWPtzKNJhw?autoplay=1">
         </iframe>
     </div>
     <div class="col-sm">
         <h3 style="text-align: center; color: aliceblue;"> Match #0003 </h3>
-        <iframe width="300px"
+        <iframe width="300"
             src="https://www.youtube.com/embed/pnMwZyB12KE?autoplay=1">
         </iframe>
     </div>

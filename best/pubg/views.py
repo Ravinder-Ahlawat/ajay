@@ -4,7 +4,7 @@ from django.contrib import messages
 from datetime import date
 from django.views.decorators.csrf import csrf_exempt
 from paytm import Checksum
-MERCHANT_KEY = 'kbzk1DSbJiV_O3p5'
+MERCHANT_KEY = 'hK&NOEIFjVOpAfes'
 
 from accounts.models import UserDetails
 
@@ -88,14 +88,14 @@ def joinnow(request):
         else:
             param_dict = {
 
-                'MID': 'WorldP64425807474247',
+                'MID': 'SsZmkq52163353024521',
                 'ORDER_ID': order_id,
                 'TXN_AMOUNT': amount,
                 'CUST_ID': Email,
                 'INDUSTRY_TYPE_ID': 'Retail',
-                'WEBSITE': 'WEBSTAGING',
+                'WEBSITE': 'DEFAULT',
                 'CHANNEL_ID': 'WEB',
-                'CALLBACK_URL':'http://127.0.0.1:8000/handlerequest/',
+                'CALLBACK_URL':'http://www.gamingkeeda.in/handlerequest/',
 
             }
             param_dict['CHECKSUMHASH'] = Checksum.generate_checksum(param_dict, MERCHANT_KEY)
