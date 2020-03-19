@@ -13,6 +13,7 @@ class Match(models.Model):
     per_kill_prize = models.IntegerField()
     winner_prize = models.IntegerField()
     match_pics = models.ImageField(default='')
+    prize_pool = models.IntegerField(default=0)
     room_id = models.CharField(max_length=10, default='', blank='True')
     room_pass = models.CharField(max_length=10, default='', blank='True')
 
