@@ -149,7 +149,7 @@
                     <h5 class="card-title">Match {{i.match_name}}</h5>
                     <h6 class="dat">	<i class="fa fa-calendar" aria-hidden="true"></i> {{i.match_date}} <i class="fa fa-clock-o" aria-hidden="true"></i> {{i.match_time}}</h6>
                     <p class="card-text"><span>Resisteration Fee:</span> <i class="fa fa-inr" aria-hidden="true"></i>{{i.match_entry}}</p>
-                    <p class="card-text"><i class="fa fa-trophy"></i>: <i class="fa fa-inr" aria-hidden="true"></i>. {{i.prize_pool}}</p>
+                    <p class="card-text"><i class="fa fa-trophy"></i>Prize Pool: <i class="fa fa-inr" aria-hidden="true"></i>. {{i.prize_pool}}</p>
                     {% if i.match_date >= today %}
                     <a href="/mdview/{{i.id}}" onclick="myFunction()" class="btn btn-outline-warning" role="button" aria-pressed="true" id="btnjn">JOIN NOW</a>
                     {% else %}

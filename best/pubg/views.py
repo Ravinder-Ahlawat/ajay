@@ -82,11 +82,12 @@ def joinnow(request):
 
 
     else: 
-        join = Join(username=username, pubg_id=pubg_id, Match_id=Match_id, match_name=match_name, Email=Email, amount=amount, user_id=uid, payment=False)
         if amount == '0':
+            join = Join(username=username, pubg_id=pubg_id, Match_id=Match_id, match_name=match_name, Email=Email, amount=amount, user_id=uid, payment=True)
             join.save();
             return redirect('/')
         else:
+            join = Join(username=username, pubg_id=pubg_id, Match_id=Match_id, match_name=match_name, Email=Email, amount=amount, user_id=uid, payment=False)
             param_dict = {
 
                 'MID': 'SsZmkq52163353024521',
