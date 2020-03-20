@@ -6,7 +6,6 @@ from django.dispatch import receiver
 class UserDetails(models.Model):
     user_id = models.IntegerField()
     phone = models.CharField(max_length=10, blank=True)
-    pubg_id = models.CharField(max_length=11, blank=True)
     pubg_name = models.CharField(max_length=20, blank=True)
     country = models.CharField(max_length=20, blank=True)
     age = models.DateField()
