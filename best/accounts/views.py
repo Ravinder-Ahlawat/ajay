@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-# from .models import UserDetails
+from .models import UserDetails
 from django.urls import resolve
    
 # Create your views here.
@@ -97,8 +97,8 @@ def pubgin(request):
         pubg_id = request.POST['pubg_id']
         age = request.POST['age']
         country = request.POST['country']
-        # pubginfo = UserDetails(user_id=user_id, phone=phone, pubg_name=pubg_name, pubg_id=pubg_id, age=age, country=country)
-        # pubginfo.save()
+        pubginfo = UserDetails(user_id=user_id, phone=phone, pubg_name=pubg_name, pubg_id=pubg_id, age=age, country=country)
+        pubginfo.save()
         return redirect('/')
 
 
