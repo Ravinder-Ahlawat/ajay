@@ -94,9 +94,9 @@ def pubgin(request):
         user_id = request.POST['id']
         phone = request.POST['phone']
         pubg_name = request.POST['pubg_name']
-        pubg_id = request.POST['pubg_id']
+        pubg_id = request.POST['country']
         age = request.POST['age']
-        country = request.POST['country']
+        country = request.POST['pubg_id']
         pubginfo = UserDetails(user_id=user_id, phone=phone, pubg_name=pubg_name, pubg_id=pubg_id, age=age, country=country)
         pubginfo.save()
         return redirect('/')
