@@ -10,13 +10,4 @@ class UserDetail(models.Model):
     pubg_name = models.CharField(max_length=20, blank=True)
     user = models.CharField(max_length=50, default='')
 
-
-
-
-
-
-class wirthdraw(models.Model):
-    amount = models.CharField(max_length=3)
-    paytm_no = models.CharField(max_length=10)
-    username = models.CharField(max_length=20)
     
