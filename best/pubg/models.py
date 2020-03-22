@@ -20,7 +20,7 @@ class Match(models.Model):
 
 class Join(models.Model):
     username = models.CharField(max_length=20)
-    pubg_id = models.IntegerField()
+    pubg_id = models.CharField(max_length=15)
     Match_id = models.IntegerField()
     match_name = models.CharField(max_length=20)
     pubg_name = models.CharField(max_length=20)
