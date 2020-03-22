@@ -6,7 +6,7 @@ from django.views.decorators.csrf import csrf_exempt
 from paytm import Checksum
 MERCHANT_KEY = 'hK&NOEIFjVOpAfes'
 
-from accounts.models import UserDetails
+from accounts.models import UserDetail
 
 # Create your views here.
 
