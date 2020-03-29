@@ -11,5 +11,6 @@ urlpatterns = [
     # path('asd/<int:myid>', views.asd, name="asd"),
     # path('asd/aj', views.aj, name="aj"),
     path('register2', views.register2, name="register2"),
-    path('pubgin', views.pubgin, name="pubgin")
+    path('pubgin', views.pubgin, name="pubgin"),
+    path('loginpage/login', views.login, name="Loginpage"),
 ]

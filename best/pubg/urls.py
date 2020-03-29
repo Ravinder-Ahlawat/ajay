@@ -12,5 +12,6 @@ urlpatterns = [
     path('handlerequest/', views.handlerequest, name="HandleRequest"),
     path('moregames/', views.csoon, name="MoreGames"),
     path('contact/', views.contact, name="CountactUs"),
-    path('handlerequest/fordel', views.delforpay, name="fordel")
+    path('handlerequest/fordel', views.delforpay, name="fordel"),
+    path('loginpage/', views.loginpage, name="loginpage"),
 ]

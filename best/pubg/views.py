@@ -15,7 +15,7 @@ from accounts.models import UserDetail
 def index(request):
     matches = Match.objects.all()
     no_of_cards = len(matches)
-    abc = matches[::-1]
+    abc = matches
     link = Links.objects.all()
     today = date.today()
     params = {'match': abc, 'range':range(0, no_of_cards), 'link':link, 'today':today}
@@ -137,3 +137,7 @@ def delforpay(request):
     Join.objects.filter(user_id=uid, Match_id=mid).update(payment=True)
     messages.info(request, 'Joined Match Successfully..')
     return redirect(a)
+
+
+def loginpage(request):
+    return render(request, 'loginpage.html')
