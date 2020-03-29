@@ -167,7 +167,7 @@ a:hover{
 	color: #38d39f;
 }
 
-.btn{
+.btn1{
 	display: block;
 	width: 100%;
 	height: 50px;
@@ -184,7 +184,7 @@ a:hover{
 	cursor: pointer;
 	transition: .5s;
 }
-.btn:hover{
+.btn1:hover{
 	background-position: right;
 }
 
@@ -231,15 +231,15 @@ a:hover{
 
 {% endblock %}
 {% block body %}
-<img class="wave" src="media/wave.png">
+<img class="wave" src="/media/wave.png">
 <div class="container">
     <div class="img">
-        <img src="media/bg.svg">
+        <img src="/media/bg.svg">
     </div>
     <div class="login-content">
         <form action="login" method="POST">
             {% csrf_token %}
-            <img src="media/avatar.svg">
+            <img src="/media/avatar.svg">
             <h2 class="title">Welcome</h2>
                <div class="input-div one">
                   <div class="i">
@@ -259,9 +259,9 @@ a:hover{
                        <input type="password" class="input">
                </div>
             </div>
-            <p>Don't have account. Please <a href="#">Register here.</a></p>
-            <a href="#">Forgot Password?</a>
-            <input type="submit" class="btn" value="Login">
+            <p>Don't have account. Please <a href="register">Register here.</a></p>
+            <a href="/password-reset/">Forgot Password?</a>
+            <input type="submit" class="btn1" value="Login">
         </form>
     </div>
 </div>
